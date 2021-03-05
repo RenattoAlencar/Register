@@ -16,6 +16,7 @@
     ],
     "rules": {
         "camelcase": "off",
+        "no-unused-vars": "off",
         "space-before-function-paren": [
             "error",
             {
