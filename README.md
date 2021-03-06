@@ -4,4 +4,4 @@
 [] Cadatro de Roles
 [] Cadastro produto/objeto
 [] User/Produtor
-[] User/Permissões
+[] Role/Permissões

@@ -27,7 +27,7 @@ class SessionController {
       expiresIn: '1d'
     })
     delete user.password
-    return response.json({
+    return response.status(201).json({
       token,
       user
     })
