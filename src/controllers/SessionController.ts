@@ -9,9 +9,10 @@ class SessionController {
     const { username, password } = request.body
 
     const userRepository = getCustomRepository(UserRepository)
-    const user = await userRepository.findOne({
-      username
-    })
+    const user = await userRepository.findOne(
+      { username },
+      { relations: ['roles'] }
+    )
     if (!user) {
       return response.status(400).json({ error: 'User not found' })
     }
@@ -22,7 +23,9 @@ class SessionController {
       return response.status(400).json({ error: 'Incorrect password or username' })
     }
 
-    const token = sign({}, process.env.SECRET_KEY, {
+    const roles = user.roles.map((role) => role.name)
+
+    const token = sign({ roles }, process.env.SECRET_KEY, {
       subject: user.id,
       expiresIn: '1d'
     })
