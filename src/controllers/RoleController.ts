@@ -30,5 +30,12 @@ class RoleController {
     await roleRepository.save(role)
     return response.status(201).json(role)
   }
+
+  async index(request: Request, response: Response) {
+    const roleRepository = getCustomRepository(RoleRepository)
+
+    const roles = await roleRepository.find()
+    return response.json(roles)
+  }
 }
 export default RoleController

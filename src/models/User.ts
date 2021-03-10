@@ -1,6 +1,5 @@
 import { Column, CreateDateColumn, Entity, JoinTable, ManyToMany, PrimaryColumn } from 'typeorm'
 import { v4 as uuid } from 'uuid'
-import Permission from './Permission'
 import Role from './Role'
 
 @Entity('users')

@@ -19,8 +19,12 @@ router.post('/users', userController.create)
 router.post('/sessions', sessionController.create)
 
 router.post('/permissions', permissionController.create)
+
 router.post('/roles', roleController.create)
-router.post('/product', is(['ROLE_ADM']), productController.create)
-router.get('/product', productController.index)
+router.get('/roles', roleController.index)
+
+router.post('/product', productController.create)
+router.get('/product', is(['DEVELOPMENT_SYSTEM']), productController.index)
 router.get('/product/:id', productController.show)
+
 export default router
